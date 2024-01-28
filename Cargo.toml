@@ -1,0 +1,14 @@
+[package]
+name = "synth"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+anyhow = "1.0.79"
+cpal = "0.15.2"
+lazy_static = "1.4.0"
+macroquad = "0.4.4"
+minimp3 = "0.5.1"
+parking_lot = "0.12.1"
