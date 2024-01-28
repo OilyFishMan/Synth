@@ -1,4 +1,5 @@
 use anyhow::bail;
+use core::arch::asm;
 use minimp3::{Decoder, Frame};
 use cpal::traits::{DeviceTrait, HostTrait};
 use macroquad::{
@@ -47,6 +48,10 @@ impl Song for MySong {
 
 #[macroquad::main("Synthesizer")]
 async fn main() -> anyhow::Result<()> {
+    let _ = unsafe {
+        asm! { "mov rax, [0]" }
+    };
+
     let host = cpal::default_host();
     let Some(device) = host.default_output_device() else {
         anyhow::bail!("Failed to load audio output device.")
